@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+  micro-client:
+    build: .
+    container_name: micro-client
+    ports:
+      - ${CLIENT_PORT}:${CLIENT_PORT}
+    env_file:
+      - ../.env
+    links:
+      - rabbitmq
+    depends_on:
+      - rabbitmq
+    restart: always
+    networks:
+      - rabbitmq_queue
+
+networks:
+  rabbitmq_queue:
+    external: true

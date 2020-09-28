@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3.8.9-management
+    tty: true
+    env_file:
+      - ../.env
+    ports:
+      - 5672:5672
+      - 15672:15672
+    restart: always
+    networks:
+      - queue
+
+networks:
+  queue:
+    driver: bridge

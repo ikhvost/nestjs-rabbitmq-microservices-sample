@@ -1,11 +1,9 @@
 version: '3.3'
 
 services:
-  micro-client:
+  micro-logger:
     build: .
-    container_name: micro-client
-    ports:
-      - ${APP_PORT}:${APP_PORT}
+    container_name: micro-logger
     env_file:
       - ./.env
     restart: always

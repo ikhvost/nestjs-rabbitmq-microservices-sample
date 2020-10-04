@@ -6,7 +6,7 @@ services:
     image: rabbitmq:3.8.9-management
     tty: true
     env_file:
-      - ../.env
+      - ./.env
     ports:
       - 5672:5672
       - 15672:15672
